@@ -27,7 +27,6 @@ Terraform:
 - Contains: main.tf, variables.tf, output.tf
 
 - In this file, I created Terraform scripts to configure/provision my AWS resources. I used the ami id given when building on Packer to create 6 ec2 instances, bastion host, vpc, and subnets.
-- Main.tf: 
 
 - To run it:
   1. Create a file to store environment variables, such as region, ami-id, key_name, and your public IP. 
