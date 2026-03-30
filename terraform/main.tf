@@ -15,23 +15,6 @@ provider "aws" {
   region = var.aws_region
 }
 
-#Set variables 
-variable "aws_region" {
-  type    = string
-  default = "us-west-2"
-}
-
-variable "ami_id" { #ami from ec2 instance by packer 
-  type = string
-}
-
-variable "my_ip" { #public ip addr
-  type = string
-}
-
-variable "key_name" {
-  type = string
-}
 
 #AWS resources
 module "vpc" {
@@ -118,10 +101,3 @@ resource "aws_instance" "private_instances" {
   }
 }
 
-output "bastion_public_ip" {
-  value = aws_instance.bastion.public_ip
-}
-
-output "private_instance_private_ips" {
-  value = aws_instance.private_instances[*].private_ip
-}
