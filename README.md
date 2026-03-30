@@ -14,10 +14,9 @@ Packer:
   <img width="752" height="76" alt="Screenshot 2026-03-30 at 10 30 30 AM" src="https://github.com/user-attachments/assets/70ed5fec-7da9-40c5-8a0d-86b4500738f9" />
   5. Create the AMI! Run: packer build -var "public_key_path=~/.ssh/id_ed25519.pub" .
 
-After running these commands, expect a lot of output as it builds the AMI image. Once it is done, you will text that confirms the build has finished, and the AMI ID of the new image. 
-<img width="1097" height="764" alt="Screenshot 2026-03-29 at 11 19 14 PM" src="https://github.com/user-attachments/assets/02b21ee8-a252-4422-9ce1-49218
+After running these commands, expect a lot of output as it builds the AMI image. Once it is done, the output will confirm that the build has finished, and will display the AMI ID of the new image. Make sure to save it! 
+<img width="1097" height="764" alt="Screenshot 2026-03-29 at 11 19 14 PM" src="https://github.com/user-attachments/assets/02b21ee8-a252-4422-9ce1-4921840b0907" />
 <img width="902" height="382" alt="Screenshot 2026-03-30 at 10 39 42 AM" src="https://github.com/user-attachments/assets/ea706cb6-00af-40cf-b420-5930bd572caa" />
-40b0907" />
 
 To confirm, you can also view your AMIs in the AWS EC2 Console! 
 <img width="1260" height="284" alt="Screenshot 2026-03-30 at 12 11 20 AM" src="https://github.com/user-attachments/assets/5d92ae36-0e6a-4a68-9077-7662c3a530fe" />
@@ -26,9 +25,18 @@ Terraform:
 - Contains: main.tf, variables.tf, output.tf
 
 - In this file, I created Terraform scripts to configure/provision my AWS resources. I used the ami id given when building on Packer to create 6 ec2 instances, bastion host, vpc, and subnets.
+- Main.tf: 
 
 - To run it:
-  1. From terraform folder, run: terraform init 
+  1. Create a file to store environment variables, such as region, ami-id, key_name, and your public IP. 
+  2. From terraform folder, run: terraform init.
+  <img width="670" height="229" alt="Screenshot 2026-03-30 at 10 44 07 AM" src="https://github.com/user-attachments/assets/20dfc0f3-8a0e-442a-b961-fa5eb64b2ba7" />
+  3. Check that the configuration is valid! Run: terraform validate
+  4. Run: terraform plan
+  5. To build, run: terraform apply
+  At the end of the output, you should see a message prompting you to enter a value. Type "yes", and the provisioning will begin. This will produce a lot of output as everything is being configured. The end result will give you your bastion public ip as well as the 6 ec2 instances that were created. Make sure you save the bastion public ip and at least one of the ec2 instance ips! 
+<img width="933" height="790" alt="Screenshot 2026-03-30 at 12 03 19 AM" src="https://github.com/user-attachments/assets/127904ad-4e61-4bdb-9bdf-e8cd21c4b5a8" />
+
 
 
 
