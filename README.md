@@ -12,7 +12,8 @@ Packer:
   2. Initialize the packer file and download plugins. Run: packer init .
   3. Ensure template is valid before building the AMI. Run:  packer validate -var "public_key_path=~/.ssh/id_ed25519.pub" .
   <img width="752" height="76" alt="Screenshot 2026-03-30 at 10 30 30 AM" src="https://github.com/user-attachments/assets/70ed5fec-7da9-40c5-8a0d-86b4500738f9" />
-  5. Create the AMI! Run: packer build -var "public_key_path=~/.ssh/id_ed25519.pub" .
+  
+  4. Create the AMI! Run: packer build -var "public_key_path=~/.ssh/id_ed25519.pub" .
 
 After running these commands, expect a lot of output as it builds the AMI image. Once it is done, the output will confirm that the build has finished, and will display the AMI ID of the new image. Make sure to save it! 
 <img width="1097" height="764" alt="Screenshot 2026-03-29 at 11 19 14 PM" src="https://github.com/user-attachments/assets/02b21ee8-a252-4422-9ce1-4921840b0907" />
@@ -31,6 +32,7 @@ Terraform:
   1. Create a file to store environment variables, such as region, ami-id, key_name, and your public IP. 
   2. From terraform folder, run: terraform init.
   <img width="670" height="229" alt="Screenshot 2026-03-30 at 10 44 07 AM" src="https://github.com/user-attachments/assets/20dfc0f3-8a0e-442a-b961-fa5eb64b2ba7" />
+  
   3. Check that the configuration is valid! Run: terraform validate
   4. Run: terraform plan
   5. To build, run: terraform apply
