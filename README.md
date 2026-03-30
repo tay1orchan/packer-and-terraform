@@ -1,8 +1,8 @@
 # packer-and-terraform
 
-#This repo contains two folders: Packer and Terraform. Packer allows us to create an AWS AMI, and Terraform allowed us to provision/create the AWS infrastructure using the AMI from Packer. 
+This repo contains two folders: Packer and Terraform. Packer allows us to create an AWS AMI, and Terraform allowed us to provision/create the AWS infrastructure using the AMI from Packer. 
 
-#Packer: 
+Packer: 
 - Contains: packerfile.pkr.hcl
 
 - In this file, I created a custom AWS AMI based on Amazon Linux with Docker installed, as well as my public SSH key. This allowed me to create a template for the EC2 instances that will be built later on using Terraform. 
@@ -19,6 +19,9 @@ After running these commands, expect a lot of output as it builds the AMI image.
 
 To confirm, you can also view your AMIs in the AWS EC2 Console! 
 <img width="1260" height="284" alt="Screenshot 2026-03-30 at 12 11 20 AM" src="https://github.com/user-attachments/assets/5d92ae36-0e6a-4a68-9077-7662c3a530fe" />
+
+Terraform: 
+
 
 
 
