@@ -48,6 +48,9 @@ To connect to your private EC2 instances from Bastion host:
 
 Now you have successfully connected to a private instance from the bastion host! If you want to check the other instances, repeat step 2. 
 
+Once done, make sure to delete infrastructure resources, using terraform destroy command. 
 
+
+<img width="567" height="213" alt="Screenshot 2026-03-30 at 6 06 02 PM" src="https://github.com/user-attachments/assets/82489b4d-a8e3-46b3-8c74-3694a6573837" />
 
 
