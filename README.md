@@ -102,4 +102,6 @@ Here, I used this query: 100 - (avg by (instance) (rate(node_cpu_seconds_total{m
 For memory: 
 <img width="1414" height="689" alt="Screenshot 2026-04-01 at 1 32 16 PM" src="https://github.com/user-attachments/assets/68eb5d90-ec7b-4e0d-bb2b-b20246a0a602" />
 
+Here, I used this query: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100. This divides the number of available bytes by total memory bytes to give us a percentage of what percentage of memory is being used. After this, I ran the query which displayed the visualization for my EC2 instances. 
+
 
