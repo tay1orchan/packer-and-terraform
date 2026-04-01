@@ -54,3 +54,23 @@ Once done, make sure to delete infrastructure resources, using terraform destroy
 <img width="567" height="213" alt="Screenshot 2026-03-30 at 6 06 02 PM" src="https://github.com/user-attachments/assets/82489b4d-a8e3-46b3-8c74-3694a6573837" />
 
 
+PROMETHEUS AND GRAFANA (Assignment #9): 
+  Continuing with packer and terraform, this assignment incorporates a monitoring EC2 instance into the private subnet. To do so, a script that installs both Prometheus and Grafana is necessary, as well as re-configuring the AMI in Packer so that Prometheus can access its data. 
+
+  Instructions on how to run: 
+  1. Once Packer and Terraform are both changed to incorporate Prometheus and Grafana, repeat the same instructions as above. Be sure to note the new AMI ID, and put that into the Terraform variables file.
+  2. After running Terraform apply, the output should return the bastion public IP, the six EC2 instance private IPs, and the monitoring private IP. Be sure to note the bastion and monitoring IPs. 
+
+<img width="813" height="201" alt="Screenshot 2026-04-01 at 2 30 10 AM" src="https://github.com/user-attachments/assets/5bbe5083-cdb9-4cce-a2d4-1739233e3ce2" />
+  3. Use the given Bastion IP to ssh into it. Run the same command as above: ssh -A -i /Path/to_pub_key/.ssh/id_ed25519 ec2-user@<bastion_host_ip>
+  4. From the bastion, now SSH into the monitoring instance. Here, we will perform checks on the Prometheus and Grafana servers to make sure they are up. Use command: ssh -i /Path/to_pub_key/.ssh/id_ed25519 ec2-user@<monitoring_ip>
+  
+<img width="951" height="413" alt="Screenshot 2026-04-01 at 2 30 50 AM" src="https://github.com/user-attachments/assets/208363c3-5e5f-4b16-b52f-76d604eff020" />
+
+5. Run these commands to check their states (should be active):
+   - sudo systemctl status prometheus
+   - sudo systemctl status grafana-server
+   <img width="1342" height="312" alt="Screenshot 2026-04-01 at 1 44 32 AM" src="https://github.com/user-attachments/assets/48e7f436-8648-4fd6-8499-1a91e87fa369" />
+   <img width="1350" height="321" alt="Screenshot 2026-04-01 at 1 44 52 AM" src="https://github.com/user-attachments/assets/b66de242-36c6-46ea-8681-34f8ecbf2118" />
+
+
