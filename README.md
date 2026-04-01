@@ -54,6 +54,11 @@ Once done, make sure to delete infrastructure resources, using terraform destroy
 <img width="567" height="213" alt="Screenshot 2026-03-30 at 6 06 02 PM" src="https://github.com/user-attachments/assets/82489b4d-a8e3-46b3-8c74-3694a6573837" />
 
 
+
+
+
+
+
 PROMETHEUS AND GRAFANA (Assignment #9): 
   Continuing with packer and terraform, this assignment incorporates a monitoring EC2 instance into the private subnet. To do so, a script that installs both Prometheus and Grafana is necessary, as well as re-configuring the AMI in Packer so that Prometheus can access its data. 
 
