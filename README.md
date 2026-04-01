@@ -70,7 +70,16 @@ PROMETHEUS AND GRAFANA (Assignment #9):
 5. Run these commands to check their states (should be active):
    - sudo systemctl status prometheus
    - sudo systemctl status grafana-server
-   <img width="1342" height="312" alt="Screenshot 2026-04-01 at 1 44 32 AM" src="https://github.com/user-attachments/assets/48e7f436-8648-4fd6-8499-1a91e87fa369" />
-   <img width="1350" height="321" alt="Screenshot 2026-04-01 at 1 44 52 AM" src="https://github.com/user-attachments/assets/b66de242-36c6-46ea-8681-34f8ecbf2118" />
+<img width="1342" height="312" alt="Screenshot 2026-04-01 at 1 44 32 AM" src="https://github.com/user-attachments/assets/48e7f436-8648-4fd6-8499-1a91e87fa369" />
+<img width="1350" height="321" alt="Screenshot 2026-04-01 at 1 44 52 AM" src="https://github.com/user-attachments/assets/b66de242-36c6-46ea-8681-34f8ecbf2118" />
 
+6. If you want additional tests, run:
+   - curl http://localhost:9090/-/healthy
+   - curl -I http://localhost:3000
+  These tests ensure that the service is responding. The output should look like this:
+<img width="585" height="176" alt="Screenshot 2026-04-01 at 2 37 44 AM" src="https://github.com/user-attachments/assets/90d02889-e643-47af-8d52-c276715b82c0" />
 
+7. Now, to actually test Prometheus and Grafana in your local browser, exit out of your monitoring and bastion instance so that you go back to your local terminal. From here, run: ssh -i ~/.ssh/id_ed25519 -L 3000:10.0.11.171:3000 -L 9090:10.0.11.171:9090 ec2-user@52.40.252.184. This command creates a connection between your laptop and the bastion, which allows a connection to Prometheus and Grafana.
+8. In your local browser, type in: http://localhost:9090 for Prometheus and http://localhost:3000 for Grafana. These should take you to a local website where you can see the status of all your EC2 instances. 
+<img width="1433" height="626" alt="Screenshot 2026-04-01 at 1 59 11 AM" src="https://github.com/user-attachments/assets/bd3ffafc-c71a-4bda-b631-bd32f1f64281" />
+<img width="1433" height="736" alt="Screenshot 2026-04-01 at 2 00 13 AM" src="https://github.com/user-attachments/assets/8117e3bf-4d97-493f-be96-ef3464345ee8" />
