@@ -67,6 +67,7 @@ PROMETHEUS AND GRAFANA (Assignment #9):
   2. After running Terraform apply, the output should return the bastion public IP, the six EC2 instance private IPs, and the monitoring private IP. Be sure to note the bastion and monitoring IPs. 
 
 <img width="813" height="201" alt="Screenshot 2026-04-01 at 2 30 10 AM" src="https://github.com/user-attachments/assets/5bbe5083-cdb9-4cce-a2d4-1739233e3ce2" />
+
   3. Use the given Bastion IP to ssh into it. Run the same command as above: ssh -A -i /Path/to_pub_key/.ssh/id_ed25519 ec2-user@<bastion_host_ip>
   4. From the bastion, now SSH into the monitoring instance. Here, we will perform checks on the Prometheus and Grafana servers to make sure they are up. Use command: ssh -i /Path/to_pub_key/.ssh/id_ed25519 ec2-user@<monitoring_ip>
   
