@@ -89,3 +89,17 @@ PROMETHEUS AND GRAFANA (Assignment #9):
 8. In your local browser, type in: http://localhost:9090 for Prometheus and http://localhost:3000 for Grafana. These should take you to a local website where you can see the status of all your EC2 instances. 
 <img width="1433" height="626" alt="Screenshot 2026-04-01 at 1 59 11 AM" src="https://github.com/user-attachments/assets/bd3ffafc-c71a-4bda-b631-bd32f1f64281" />
 <img width="1433" height="736" alt="Screenshot 2026-04-01 at 2 00 13 AM" src="https://github.com/user-attachments/assets/8117e3bf-4d97-493f-be96-ef3464345ee8" />
+
+EXTRA CREDIT: Create a Grafana Dashboard with memory utilization and CPU utilization for each EC2 instance. 
+
+For the extra creidt, I created two panels in a Grafana dashboard: one for CPU and one for memory. 
+
+For CPU: 
+<img width="1408" height="664" alt="Screenshot 2026-04-01 at 1 30 12 PM" src="https://github.com/user-attachments/assets/8296a6b7-fa4f-4c77-a8b0-5d09d6941e05" />
+
+Here, I used this query: 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100). This gets the cpu seconds from node exporter, looks at the time spent in cpu, and then calculates the perentage by subtracting by 100. Then, I ran the query which displayed the visualization for all 6 instances. 
+
+For memory: 
+<img width="1414" height="689" alt="Screenshot 2026-04-01 at 1 32 16 PM" src="https://github.com/user-attachments/assets/68eb5d90-ec7b-4e0d-bb2b-b20246a0a602" />
+
+
