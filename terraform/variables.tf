@@ -4,10 +4,6 @@ variable "aws_region" {
   default = "us-west-2"
 }
 
-variable "ami_id" { #ami from ec2 instance by packer 
-  type = string
-}
-
 variable "my_ip" { #public ip addr
   type = string
 }

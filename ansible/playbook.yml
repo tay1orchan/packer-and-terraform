@@ -1,0 +1,38 @@
+---
+- name: Server Setup - Update, Docker, and Disk Usage
+  hosts: all
+  become: yes # This runs the commands as 'root' (sudo)
+  
+  tasks:
+    - name: Ubuntu - Update apt cache and upgrade packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+      when: ansible_os_family == "Debian"
+
+    - name: Ubuntu -  Ensure latest Docker is installed
+      apt:
+        name: docker.io
+        state: latest
+      when: ansible_os_family == "Debian"
+
+    - name: Amazon Linux - Upgrade all packages
+      dnf:
+        name: "*"
+        state: latest
+      when: ansible_distribution == "Amazon"
+
+    - name: Amazon Linux - Ensure latest Docker is installed
+      dnf:
+        name: docker
+        state: latest
+      when: ansible_distribution == "Amazon"
+
+    - name: Check disk usage
+      command: df -h
+      register: disk_usage_output
+      changed_when: false 
+
+    - name: Report disk usage 
+      debug:
+        msg: "{{ disk_usage_output.stdout_lines }}"
