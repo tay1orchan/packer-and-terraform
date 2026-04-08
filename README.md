@@ -123,7 +123,11 @@ This image demonstrates the connection to the 6 EC2 instances by displaying thei
 
 After that, I configured a the playbook playbook.yml file, which performs the actual tasks (1. Upgdate/upgrades, 2. Verify latest docker, 3. Get Disk usage). Finally, I ran the command ansible-playbook -i <inventory.yml> <playbook.yml> to execute the playbook. 
 
+1. Updates, upgrades, verifying latest docker 
 <img width="1280" height="735" alt="Screenshot 2026-04-08 at 2 15 29 AM" src="https://github.com/user-attachments/assets/dc0a649d-e47d-4c34-b478-7c6218d5d767" />
+<img width="1253" height="437" alt="Screenshot 2026-04-08 at 2 16 32 AM" src="https://github.com/user-attachments/assets/5fb1c309-0b69-4154-97db-5035d403d73a" />
 
+2. Disk usage report for the EC2 instances
+<img width="1048" height="703" alt="Screenshot 2026-04-08 at 2 17 23 AM" src="https://github.com/user-attachments/assets/c8c1d147-cd91-419b-8a0d-56ff2fa5450a" />
 
 
