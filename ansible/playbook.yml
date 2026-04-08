@@ -1,7 +1,9 @@
 ---
 - name: Server Setup - Update, Docker, and Disk Usage
   hosts: all
-  become: yes # This runs the commands as 'root' (sudo)
+  become: yes 
+  
+  # UBUNTU INSTANCES 
   
   tasks:
     - name: Ubuntu - Update apt cache and upgrade packages
@@ -16,6 +18,8 @@
         state: latest
       when: ansible_os_family == "Debian"
 
+  # AMAZON LINUX INSTANCES 
+  
     - name: Amazon Linux - Upgrade all packages
       dnf:
         name: "*"
@@ -27,7 +31,10 @@
         name: docker
         state: latest
       when: ansible_distribution == "Amazon"
+      
+  # DISK USAGE FOR INSTANCES 
 
+  
     - name: Check disk usage
       command: df -h
       register: disk_usage_output
