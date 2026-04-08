@@ -1,4 +1,4 @@
-# packer-and-terraform
+# Assignment #8 : packer-and-terraform
 
 This repo contains two folders: Packer and Terraform. Packer allows us to create an AWS AMI, and Terraform allowed us to provision/create the AWS infrastructure using the AMI from Packer. 
 
@@ -59,7 +59,7 @@ Once done, make sure to delete infrastructure resources, using terraform destroy
 
 
 
-PROMETHEUS AND GRAFANA (Assignment #9): 
+# Assignment #9 : PROMETHEUS AND GRAFANA
   Continuing with packer and terraform, this assignment incorporates a monitoring EC2 instance into the private subnet. To do so, a script that installs both Prometheus and Grafana is necessary, as well as re-configuring the AMI in Packer so that Prometheus can access its data. 
 
   Instructions on how to run: 
@@ -103,5 +103,27 @@ For memory:
 <img width="1414" height="689" alt="Screenshot 2026-04-01 at 1 32 16 PM" src="https://github.com/user-attachments/assets/68eb5d90-ec7b-4e0d-bb2b-b20246a0a602" />
 
 Here, I used this query: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100. This divides the number of available bytes by total memory bytes to give us a percentage of what percentage of memory is being used. After this, I ran the query which displayed the visualization for my EC2 instances. 
+
+
+
+
+
+
+
+# Assignment #11 : Ansible
+For this assignment, the first step was to provision Terraform to have the 6 EC2 instances and Ansible Controller. Then, I ran Terraform apply to apply these changes and get my bastion IP, as well as the IP's for all my EC2 instances. 
+
+The next step was to install Ansible. I decided to installed it on my Macbook by running the command: brew install Ansible.  
+
+Then, I configured a yaml file to tell Ansible which of the instances to target. I also included a ProxyJump to tunnel my computer to the Bastion Host and create a connection to my EC2 instances. This allows my own computer to be the "master", and the 6 EC2 instances to be the workers. 
+
+<img width="1148" height="730" alt="Screenshot 2026-04-08 at 2 01 27 AM" src="https://github.com/user-attachments/assets/2e3b0fa5-9e83-4b86-bb62-cc42524e815d" />
+
+This image demonstrates the connection to the 6 EC2 instances by displaying their IPs. 
+
+After that, I configured a the playbook playbook.yml file, which performs the actual tasks (1. Upgdate/upgrades, 2. Verify latest docker, 3. Get Disk usage). Finally, I ran the command ansible-playbook -i <inventory.yml> <playbook.yml> to execute the playbook. 
+
+<img width="1280" height="735" alt="Screenshot 2026-04-08 at 2 15 29 AM" src="https://github.com/user-attachments/assets/dc0a649d-e47d-4c34-b478-7c6218d5d767" />
+
 
 
