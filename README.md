@@ -113,9 +113,9 @@ Here, I used this query: (1 - (node_memory_MemAvailable_bytes / node_memory_MemT
 # Assignment #11 : Ansible
 For this assignment, the first step was to provision Terraform to have the 6 EC2 instances and Ansible Controller. Then, I ran Terraform apply to apply these changes and get my bastion IP, as well as the IP's for all my EC2 instances. 
 
-The next step was to install Ansible. I decided to installed it on my Macbook by running the command: brew install Ansible.  
+The next step was to install Ansible. I decided to installed it on my Macbook by running the command: brew install Ansible.  In my existing folder that I used for Assignments #8 and #9, I created an Ansible directory. This will contain the actaul playbook as well as an inventory file. 
 
-Then, I configured a yaml file to tell Ansible which of the instances to target. I also included a ProxyJump to tunnel my computer to the Bastion Host and create a connection to my EC2 instances. This allows my own computer to be the "master", and the 6 EC2 instances to be the workers. 
+I first configured the inventory yaml file to tell Ansible which of the specific instances to target using their IPs. I also included a ProxyJump to tunnel my computer to the Bastion Host and create a connection to my EC2 instances. This allows my own computer to be the "master", and the 6 EC2 instances to be the workers. 
 
 <img width="1148" height="730" alt="Screenshot 2026-04-08 at 2 01 27 AM" src="https://github.com/user-attachments/assets/2e3b0fa5-9e83-4b86-bb62-cc42524e815d" />
 
