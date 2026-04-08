@@ -130,4 +130,6 @@ After that, I configured a the playbook playbook.yml file, which performs the ac
 2. Disk usage report for the EC2 instances
 <img width="1048" height="703" alt="Screenshot 2026-04-08 at 2 17 23 AM" src="https://github.com/user-attachments/assets/c8c1d147-cd91-419b-8a0d-56ff2fa5450a" />
 
+This confirmed to me that Terraform successfully provisioned the resources and Ansible performed the playbook
+
 
